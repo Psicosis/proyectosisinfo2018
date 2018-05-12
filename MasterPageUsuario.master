@@ -55,6 +55,7 @@
 					        <li><a class="menu" href="#team">Tus Medicos</a></li>
                             <%--<li><a class="menu" href="/pagehistorialmedico.aspx">Informes Medicos</a></li>--%>
                               <li><a class="menu" href="/pagehistoriales.aspx">Informes Medicos</a></li>
+                              <li><a class="menu" href="/pageLogin.aspx">Cerrar Sesion</a></li>
 
 					        <%--<li><a class="menu" href="#contact"> contact us</a></li>--%>
 					      </ul>

@@ -14,14 +14,16 @@ public class clsinformemedico : clsconexion
     string tabla = "tbl_historialmedico";
     protected string id_usuario, nombre, doctor, descripcion;
     protected int id;
+    private DateTime fecha;
 
-    public clsinformemedico(int id, string id_usuario, string nombre, string doctor, string descripcion)
+    public clsinformemedico(int id, string id_usuario, string nombre, string doctor, string descripcion, DateTime fecha)
     {
         this.id = id;
         this.id_usuario = id_usuario;
         this.nombre = nombre;
         this.doctor = doctor;
         this.descripcion = descripcion;
+        this.fecha = fecha;
     }
 
 
@@ -56,6 +58,12 @@ public class clsinformemedico : clsconexion
         set { descripcion = value; }
         get { return descripcion; }
     }
+    public DateTime Fecha
+    {
+        set { fecha = value; }
+        get { return fecha; }
+    }
+
 
     public void agregar()
     {
@@ -68,7 +76,8 @@ public class clsinformemedico : clsconexion
         fila["nombre"] = Nombre;
         fila["doctor"] = Doctor;
         fila["descripcion"] = Descripcion;
-        
+        fila["fecha"] = Fecha;
+
         Data.Tables[tabla].Rows.Add(fila);
         AdaptadorDatos.Update(Data, tabla);
     }

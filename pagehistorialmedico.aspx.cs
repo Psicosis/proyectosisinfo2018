@@ -10,6 +10,12 @@ public partial class pagehistorialmedico : System.Web.UI.Page
     protected void Page_Load(object sender, EventArgs e)
     {
 
+        if (!IsPostBack)
+        {
+            Calendar1.Visible = false;
+        }
+
+
     }
 
 
@@ -24,7 +30,7 @@ public partial class pagehistorialmedico : System.Web.UI.Page
     //    txtdoctor.Enabled = true;
     //    txtdescripcion.Enabled = true;
 
-                
+
     //    lblestado.Text = "";
 
 
@@ -96,8 +102,8 @@ public partial class pagehistorialmedico : System.Web.UI.Page
             
             //RadioButtonListCategoria.Enabled = true;
             //RadioButtonListCategoria.SelectedIndex = 0;
-            btnmodificar.Enabled = false;
-            btneliminar.Enabled = false;
+            //btnmodificar.Enabled = false;
+            //btneliminar.Enabled = false;
             //limpia el formulario
             //txtid.Text = "";
             drpnombreusuario.SelectedIndex = drpnombreusuario.Items.IndexOf(drpnombreusuario.Items.FindByValue("0"));
@@ -111,15 +117,15 @@ public partial class pagehistorialmedico : System.Web.UI.Page
         {
             try
             {
-                clsinformemedico cinf = new clsinformemedico(0,"" , "", "", "");
+                clsinformemedico cinf = new clsinformemedico(0,"" , "", "", "",new DateTime (1,1,1));
 
                 //instancia de clase cliente                
                 //cambia el estado de los controles
 
                 btnnuevo.Text = "Nuevo";
-                btnmodificar.Enabled = true;
+                //btnmodificar.Enabled = true;
                 btnnuevo.Enabled = true;
-                btneliminar.Enabled = true;
+                //btneliminar.Enabled = true;
                 btncancelar.Enabled = true;
 
                 //txtid.Enabled = false;
@@ -129,45 +135,49 @@ public partial class pagehistorialmedico : System.Web.UI.Page
                 txtdescripcion.Enabled = false;
 
 
-            //RadioButtonListCategoria.Enabled = false;
+                //RadioButtonListCategoria.Enabled = false;
 
-            //int cedula;
-            //cedula = int.Parse.(drpnombreusuario.SelectedItem.Text);
+                //int cedula;
+                //cedula = int.Parse.(drpnombreusuario.SelectedItem.Text);
 
-            //if (cinf.existe(int.Parse(drpnombreusuario.SelectedItem.Text)))
-
-
-
-
-            //if (cinf.existe(int.Parse(drpnombreusuario.SelectedValue)))
-            //    {
-            //    //captura datos del formulario
-
-            //    //cinf.Idusuario = drpnombreusuario.SelectedItem.Text;
-            //        cinf.Idusuario = drpnombreusuario.SelectedItem.Value;
-            //        cinf.Nombre = txtnombreinforme.Text;
-            //        cinf.Doctor = txtdoctor.Text;
-            //        cinf.Descripcion = txtdescripcion.Text;
+                //if (cinf.existe(int.Parse(drpnombreusuario.SelectedItem.Text)))
 
 
 
-            //        //clt.Categoria = int.Parse(RadioButtonListCategoria.SelectedValue);
-            //        //clt.modificar();//actualiza el registro en la base de datos                   
-            //        cinf.modificar();
-            //        lblestado.Text = "Registro Actualizado";
-            //    }
-            //    else
-            //    {
-                    //captura datos del formulario
 
-                    cinf.Idusuario = drpnombreusuario.SelectedItem.Value;
+                //if (cinf.existe(int.Parse(drpnombreusuario.SelectedValue)))
+                //    {
+                //    //captura datos del formulario
+
+                //    //cinf.Idusuario = drpnombreusuario.SelectedItem.Text;
+                //        cinf.Idusuario = drpnombreusuario.SelectedItem.Value;
+                //        cinf.Nombre = txtnombreinforme.Text;
+                //        cinf.Doctor = txtdoctor.Text;
+                //        cinf.Descripcion = txtdescripcion.Text;
+
+
+
+                //        //clt.Categoria = int.Parse(RadioButtonListCategoria.SelectedValue);
+                //        //clt.modificar();//actualiza el registro en la base de datos                   
+                //        cinf.modificar();
+                //        lblestado.Text = "Registro Actualizado";
+                //    }
+                //    else
+                //    {
+                //captura datos del formulario
+                //Selecciona el id
+                //cinf.Idusuario = drpnombreusuario.SelectedItem.Value;
+
+                //selecciona el nombre
+                    cinf.Idusuario = drpnombreusuario.SelectedItem.Text;
                     cinf.Nombre = txtnombreinforme.Text;
                     cinf.Doctor = txtdoctor.Text;
                     cinf.Descripcion = txtdescripcion.Text;
+                    cinf.Fecha = Convert.ToDateTime(txtfecha.Text);
 
-                    
-                    //clt.Categoria = int.Parse(RadioButtonListCategoria.SelectedValue);
-                    cinf.agregar();//agrega un nuevo registro a la base de datos                
+
+                //clt.Categoria = int.Parse(RadioButtonListCategoria.SelectedValue);
+                cinf.agregar();//agrega un nuevo registro a la base de datos                
                     lblestado.Text = "Nuevo Registro Guardado";
                 //}
             }
@@ -192,6 +202,26 @@ public partial class pagehistorialmedico : System.Web.UI.Page
 
     protected void btnbuscar_Click(object sender, EventArgs e)
     {
+
+    }
+
+    protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+    {
+        if (Calendar1.Visible)
+        {
+            Calendar1.Visible = false;
+        }
+        else
+        {
+            Calendar1.Visible = true;
+        }
+
+    }
+
+    protected void Calendar1_SelectionChanged(object sender, EventArgs e)
+    {
+        txtfecha.Text = Calendar1.SelectedDate.ToLongDateString();
+        Calendar1.Visible = false;
 
     }
 }

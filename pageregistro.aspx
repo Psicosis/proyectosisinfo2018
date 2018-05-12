@@ -4,8 +4,8 @@
     <table style="width: 752px; border: 1px solid #cccccc; height: 409px;" align="center">
         <tr>
             <td style="width: 250px; height: 35px;">
-                <asp:TextBox ID="txtbuscar" runat="server" OnTextChanged="TextBox9_TextChanged"></asp:TextBox>
-                <asp:Button ID="btnbuscar" runat="server" OnClick="btnbuscar_Click" Text="Buscar" />
+                <%--<asp:TextBox ID="txtbuscar" runat="server" OnTextChanged="TextBox9_TextChanged"></asp:TextBox>
+                <asp:Button ID="btnbuscar" runat="server" OnClick="btnbuscar_Click" Text="Buscar" />--%>
             </td>
             <td colspan="2" style="height: 35px">
                 <asp:Button ID="btnnuevo" runat="server" OnClick="btnnuevo_Click" Text="Nuevo" />

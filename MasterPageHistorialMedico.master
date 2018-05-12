@@ -54,11 +54,11 @@
 					      <ul class="nav navbar-nav navbar-right">
 					        <li><a class="menu active" href="/pageusuario.aspx" >Home</a></li>
 					        <li><a class="menu" href="/pagehistorialmedico.aspx">Nuevo</a></li>
-                                                       
+                            <li><a class="menu" href="/pageLogin.aspx">Cerrar Session </a></li>                           
 
-					        <li><a class="menu" href="/pagemostrarhistoriales.aspx">Mostrar</a></li>
+					        <%--<li><a class="menu" href="#service">Buscar </a></li>
 					        <li><a class="menu" href="#team">Eliminar</a></li>
-					        <li><a class="menu" href="#contact"> Modificar</a></li>
+					        <li><a class="menu" href="#contact"> Modificar</a></li>--%>
 					      </ul>
 					    </div><!-- /navbar-collapse -->
 					  </div><!-- / .container-fluid -->

@@ -18,7 +18,7 @@ public partial class pageregistro : System.Web.UI.Page
     }
 
     public void GUIEdicion() {
-        txtbuscar.Enabled = true;
+        //txtbuscar.Enabled = true;
 
         txtci.Enabled = true;
         txtnombre.Enabled = true;
@@ -56,7 +56,7 @@ public partial class pageregistro : System.Web.UI.Page
 
 
 
-        txtbuscar.Enabled = true;
+        //txtbuscar.Enabled = true;
 
         txtci.Enabled = false;
         txtnombre.Enabled = false;
@@ -180,32 +180,32 @@ public partial class pageregistro : System.Web.UI.Page
 
     protected void btnbuscar_Click(object sender, EventArgs e)
     {
-        try {
+        //try {
 
-            clsusuario usuar = new clsusuario(0, 0, 0, "", "", "", "", "", "");
-            if (usuar.existe(int.Parse(txtbuscar.Text.Trim())))
-            {
-                txtci.Text = usuar.Ci.ToString();
-                txtedad.Text = usuar.Edad.ToString();
-                rdbacceso.SelectedIndex = rdbacceso.Items.IndexOf(rdbacceso.Items.FindByValue(usuar.Idacceso.ToString()));
-                txtnombre.Text = usuar.Nombre;
-                txtapellido.Text = usuar.Apellido;
-                txtemail.Text = usuar.Email;
-                txtprofesion.Text = usuar.Profesion;
-                txtusuario.Text = usuar.Usuario;
-                //txtcontraseña.Text = usuar.Contraseña;
-                txtcontraseña.Attributes.Add("Value", usuar.Contraseña);
-                lblestado.Text = "Registro Encontrado";
+        //    clsusuario usuar = new clsusuario(0, 0, 0, "", "", "", "", "", "");
+        //    if (usuar.existe(int.Parse(txtbuscar.Text.Trim())))
+        //    {
+        //        txtci.Text = usuar.Ci.ToString();
+        //        txtedad.Text = usuar.Edad.ToString();
+        //        rdbacceso.SelectedIndex = rdbacceso.Items.IndexOf(rdbacceso.Items.FindByValue(usuar.Idacceso.ToString()));
+        //        txtnombre.Text = usuar.Nombre;
+        //        txtapellido.Text = usuar.Apellido;
+        //        txtemail.Text = usuar.Email;
+        //        txtprofesion.Text = usuar.Profesion;
+        //        txtusuario.Text = usuar.Usuario;
+        //        //txtcontraseña.Text = usuar.Contraseña;
+        //        txtcontraseña.Attributes.Add("Value", usuar.Contraseña);
+        //        lblestado.Text = "Registro Encontrado";
 
-            }
-            else
-            {
-                lblestado.Text = "No hubieron resultados";
-            }
-        }
-        catch {
-            lblestado.Text = "No existe patron de busqueda";
-        }
+        //    }
+        //    else
+        //    {
+        //        lblestado.Text = "No hubieron resultados";
+        //    }
+        //}
+        //catch {
+        //    lblestado.Text = "No existe patron de busqueda";
+        //}
         
     }
 
