@@ -94,20 +94,20 @@ public partial class pageregistro : System.Web.UI.Page
                 if (usuar.existe(int.Parse(txtci.Text.Trim())))
                 {
 
-                    usuar.Ci = int.Parse(txtci.Text);
-                    usuar.Idacceso = int.Parse(rdbacceso.SelectedValue);
-                    usuar.Edad = int.Parse(txtedad.Text);
-                    usuar.Nombre = txtnombre.Text;
-                    usuar.Apellido = txtapellido.Text;
-                    usuar.Email = txtemail.Text;
-                    usuar.Profesion = txtprofesion.Text;
-                    usuar.Usuario = txtusuario.Text;
-                    usuar.Contraseña = txtcontraseña.Text;
+                    //usuar.Ci = int.Parse(txtci.Text);
+                    //usuar.Idacceso = int.Parse(rdbacceso.SelectedValue);
+                    //usuar.Edad = int.Parse(txtedad.Text);
+                    //usuar.Nombre = txtnombre.Text;
+                    //usuar.Apellido = txtapellido.Text;
+                    //usuar.Email = txtemail.Text;
+                    //usuar.Profesion = txtprofesion.Text;
+                    //usuar.Usuario = txtusuario.Text;
+                    //usuar.Contraseña = txtcontraseña.Text;
 
-                    usuar.modificar();
+                    //usuar.modificar();
 
-                    GUIEdicionTerminada();
-                    lblestado.Text = "Registro Actualizado";
+                    //GUIEdicionTerminada();
+                    lblestado.Text = "El usuario ya existe intente nuevamente";
                     btnnuevo.Text = "Nuevo";
                 }
                 else {
@@ -124,7 +124,7 @@ public partial class pageregistro : System.Web.UI.Page
 
                     usuar.agregar();
                     GUIEdicionTerminada();
-                    lblestado.Text = "Nuevo Registro Guardado";
+                    lblestado.Text = "Nuevo Usuario creado";
                     btnnuevo.Text = "Nuevo";
 
                 }

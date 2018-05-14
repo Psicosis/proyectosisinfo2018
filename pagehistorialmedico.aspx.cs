@@ -98,6 +98,7 @@ public partial class pagehistorialmedico : System.Web.UI.Page
             txtnombreinforme.Enabled = true;
             txtdoctor.Enabled = true;
             txtdescripcion.Enabled = true;
+            txtfecha.Enabled = true;
 
             
             //RadioButtonListCategoria.Enabled = true;
@@ -107,8 +108,11 @@ public partial class pagehistorialmedico : System.Web.UI.Page
             //limpia el formulario
             //txtid.Text = "";
             drpnombreusuario.SelectedIndex = drpnombreusuario.Items.IndexOf(drpnombreusuario.Items.FindByValue("0"));
+            
             txtnombreinforme.Text = "";
+            txtdoctor.Text = "";
             txtdescripcion.Text = "";
+            txtfecha.Text = "";
                     
             lblestado.Text = "";
 
@@ -133,6 +137,7 @@ public partial class pagehistorialmedico : System.Web.UI.Page
                 txtnombreinforme.Enabled = false;
                 txtdoctor.Enabled = false;
                 txtdescripcion.Enabled = false;
+                txtfecha.Enabled = false;
 
 
                 //RadioButtonListCategoria.Enabled = false;
@@ -178,10 +183,10 @@ public partial class pagehistorialmedico : System.Web.UI.Page
 
                 //clt.Categoria = int.Parse(RadioButtonListCategoria.SelectedValue);
                 cinf.agregar();//agrega un nuevo registro a la base de datos                
-                    lblestado.Text = "Nuevo Registro Guardado";
+                lblestado.Text = "Nuevo Informe Guardado";
                 //}
             }
-           catch { lblestado.Text = "No puede dejar espacios vacidos"; }
+           catch { lblestado.Text = "No puede dejar espacios vacios"; }
         }
     }
 

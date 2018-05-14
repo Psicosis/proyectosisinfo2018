@@ -2,6 +2,6 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
 
-    Informacion sobre la aplicacion
+    &nbsp;
 </asp:Content>
 

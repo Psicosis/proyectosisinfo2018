@@ -12,10 +12,10 @@
             </td>
             <td colspan="2" style="height: 54px">
                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                <asp:Button ID="btnnuevo" runat="server" OnClick="btnnuevo_Click" Text="Nuevo" Font-Bold="True" Font-Size="XX-Large" BackColor="#0099FF" Font-Names="Forte" />
+                <asp:Button ID="btnnuevo" runat="server" OnClick="btnnuevo_Click" Text="Nuevo" Font-Bold="True" Font-Size="X-Large" BackColor="#0099FF" Font-Names="Bernard MT Condensed" />
                 <%--<asp:Button ID="btnmodificar" runat="server" OnClick="btnmodificar_Click" Text="Modificar" />--%>
                 <%--<asp:Button ID="btneliminar" runat="server" OnClick="btneliminar_Click" Text="Eliminar" />--%>
-                <asp:Button ID="btncancelar" runat="server" Text="Cancelar" OnClick="btncancelar_Click" Font-Bold="True" Font-Size="XX-Large" BackColor="#0099FF" Font-Names="Forte" />
+                <asp:Button ID="btncancelar" runat="server" Text="Cancelar" OnClick="btncancelar_Click" Font-Bold="True" Font-Size="X-Large" BackColor="#0099FF" Font-Names="Bernard MT Condensed" />
             </td>
         </tr>
         <tr>
@@ -34,7 +34,7 @@
             </td>--%>
         </tr>
         <tr>
-            <td style="font-size: xx-large; font-family: forte; " class="text-center"><strong style="text-decoration: blink">Nombre de Usuario</strong></td>
+            <td style="font-size: large; font-family: 'Bernard MT Condensed'; " class="text-center"><strong style="text-decoration: blink">Nombre de Usuario</strong></td>
             <td style="font-family: 'Book Antiqua';" class="text-left">
                 <asp:DropDownList ID="drpnombreusuario" runat="server" DataSourceID="SqlDataSourceNombreUsuario" DataTextField="nombre" DataValueField="ci">
                     <asp:ListItem Value="0">Ninguno</asp:ListItem>
@@ -43,25 +43,25 @@
             </td>
         </tr>
         <tr>
-            <td style="font-size: xx-large; font-family: forte; " class="text-center"><strong>Nombre de informe</strong></td>
+            <td style="font-size: large; font-family: 'Bernard MT Condensed'; " class="text-center"><strong>Nombre de informe</strong></td>
             <td style="height: 54px; font-family: 'Book Antiqua';" class="text-left">
                 <asp:TextBox ID="txtnombreinforme" runat="server" Enabled="False" Width="150px"></asp:TextBox>
             </td>
         </tr>
         <tr>
-            <td style="font-size: xx-large; font-family: forte; " class="text-center"><strong>Doctor</strong></td>
+            <td style="font-size: large; font-family: 'Bernard MT Condensed'; " class="text-center"><strong>Doctor</strong></td>
             <td style="font-family: 'Book Antiqua';" class="text-left">
                 <asp:TextBox ID="txtdoctor" runat="server" Enabled="False" Width="152px"></asp:TextBox>
             </td>
         </tr>
         <tr>
-            <td style="font-size: xx-large; font-family: forte; " class="text-center"><strong>Descripcion</strong></td>
+            <td style="font-size: large; font-family: 'Bernard MT Condensed'; " class="text-center"><strong>Descripcion</strong></td>
             <td style="font-family: 'Book Antiqua';" class="text-left">
                 <asp:TextBox ID="txtdescripcion" runat="server" Enabled="False" Height="43px" Width="156px"></asp:TextBox>
             </td>
         </tr>
         <tr>
-            <td style="font-size: xx-large; font-family: forte; " class="text-center">Fecha</td>
+            <td style="font-size: large; font-family: 'Bernard MT Condensed'; font-weight: bold;" class="text-center">Fecha</td>
             <td style="font-family: 'Book Antiqua';" class="text-left">
                 <asp:TextBox ID="txtfecha" runat="server"></asp:TextBox>
                 <asp:ImageButton ID="ImageButton1" runat="server" Height="37px" ImageUrl="~/images/calendario.png" OnClick="ImageButton1_Click" Width="60px" />
@@ -79,7 +79,7 @@
             </td>
         </tr>
         <tr>
-            <td style="font-size: xx-large; font-family: forte;" class="text-center">
+            <td style="font-size: large; font-family: 'Bernard MT Condensed';" class="text-center">
                 <strong>
                 <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/pagehistoriales.aspx" Font-Bold="True" Font-Size="XX-Large">Regresar</asp:HyperLink>
                 </strong>
