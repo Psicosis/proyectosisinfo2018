@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data;
 using System.Data.SqlClient;
+using System.Drawing;
 
 /// <summary>
 /// Descripción breve de clsinformemedico
@@ -12,18 +13,24 @@ public class clsinformemedico : clsconexion
 {
 
     string tabla = "tbl_historialmedico";
-    protected string id_usuario, nombre, doctor, descripcion;
+    protected string id_usuario, nombre, doctor, descripcion, tipo;//,imagen;
+    //Bitmap 
+    private Byte[] imagen;
+    
     protected int id;
     private DateTime fecha;
+    //public int id
 
-    public clsinformemedico(int id, string id_usuario, string nombre, string doctor, string descripcion, DateTime fecha)
+    public clsinformemedico(int id, string id_usuario, string nombre, string doctor, string descripcion,string tipo,Byte[] imagen, DateTime fecha)
     {
         this.id = id;
         this.id_usuario = id_usuario;
         this.nombre = nombre;
         this.doctor = doctor;
         this.descripcion = descripcion;
+        this.tipo = tipo;
         this.fecha = fecha;
+        this.imagen = imagen;
     }
 
 
@@ -58,6 +65,17 @@ public class clsinformemedico : clsconexion
         set { descripcion = value; }
         get { return descripcion; }
     }
+    public string Tipo
+    {
+        set { tipo = value; }
+        get { return tipo; }
+    }
+    public Byte[] Imagen
+    {
+        set { imagen = value; }
+        get { return imagen; }
+    }
+
     public DateTime Fecha
     {
         set { fecha = value; }
@@ -76,7 +94,10 @@ public class clsinformemedico : clsconexion
         fila["nombre"] = Nombre;
         fila["doctor"] = Doctor;
         fila["descripcion"] = Descripcion;
+        fila["tipo"] = Tipo;
         fila["fecha"] = Fecha;
+        fila["imagen"] = Imagen;
+        
 
         Data.Tables[tabla].Rows.Add(fila);
         AdaptadorDatos.Update(Data, tabla);

@@ -12,12 +12,15 @@
         <td style="font-weight: bolder; font-style: inherit; font-size: medium;">Usuario</td>
         <td>
             <asp:TextBox ID="txtusuario" runat="server"></asp:TextBox>
+            <%--<asp:TextBox ID="txtusuario" name="txtusuario" runat="server"></asp:TextBox>--%>
+            
         </td>
     </tr>
     <tr>
         <td style="font-weight: bolder; font-style: inherit; font-size: medium;">Contraseña</td>
         <td>
             <asp:TextBox ID="txtcontraseña" runat="server" TextMode="Password"></asp:TextBox>
+            
         </td>
     </tr>
     <tr>
@@ -30,18 +33,19 @@
         <td style="font-weight: bolder; font-style: inherit; font-size: medium;">&nbsp;</td>
         <td>
             <asp:Button ID="btninicio" runat="server" Text="Inicio de Session" OnClick="btninicio_Click" />
+            <%--<asp:Button ID="btninicio" runat="server" PostBackurl="~/pagehistoriales.aspx" Text="Inicio de Session" OnClick="btninicio_Click" />--%>
             </td>
     </tr>
     <tr>
         <td style="font-weight: bolder; font-style: inherit; font-size: medium; height: 30px;"></td>
         <td style="height: 30px">
-            <asp:HyperLink ID="lnkregistrarse" runat="server" NavigateUrl="~/pageregistro.aspx">Registrarse</asp:HyperLink>
+            <asp:HyperLink ID="lnkregistrarse" runat="server" NavigateUrl="~/pageregistro.aspx" Font-Bold="True" Font-Size="Small" ForeColor="Blue">Registrarse</asp:HyperLink>
         </td>
     </tr>
     <tr>
         <td colspan="2" style="font-weight: bolder; font-style: inherit; font-size: medium;">
             <h1>
-                <asp:Label ID="lblestado" runat="server"></asp:Label>
+                <asp:Label ID="lblestado" runat="server" Font-Bold="True" ForeColor="Red"></asp:Label>
             </h1>
             
         </td>

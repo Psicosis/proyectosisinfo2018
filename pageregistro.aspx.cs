@@ -9,12 +9,30 @@ public partial class pageregistro : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
     {
+            //GUIEdicion();
+            //GUILimpiar();
+            btnnuevo.Text = "Guardar";
 
+        
+        
     }
 
     protected void TextBox9_TextChanged(object sender, EventArgs e)
     {
 
+    }
+
+    private bool IsNumeric(string num)
+    {
+        try
+        {
+            double x = Convert.ToDouble(num);
+            return true;
+        }
+        catch (Exception)
+        {
+            return false;
+        }
     }
 
     public void GUIEdicion() {
@@ -53,9 +71,6 @@ public partial class pageregistro : System.Web.UI.Page
 
     public void GUIEdicionTerminada() {
 
-
-
-
         //txtbuscar.Enabled = true;
 
         txtci.Enabled = false;
@@ -77,61 +92,131 @@ public partial class pageregistro : System.Web.UI.Page
         
     }
 
+    public void limpiarlbls()
+    {
+        lblestadoci.Text = "";
+        lblestadonombre.Text = "";
+        lblestadoapellido.Text = "";
+        lblestadoedad.Text = "";
+        lblestadoemail.Text = "";
+        lblestadoprofesion.Text = "";
+        lblestadousuario.Text = "";
+        lblestadocontraseña.Text = "";
+
+
+    }
+
 
     protected void btnnuevo_Click(object sender, EventArgs e)
     {
 
-        if (btnnuevo.Text == "Nuevo") {
+       if(btnnuevo.Text == "Guardar") {
 
-            GUIEdicion();
-            GUILimpiar();
-            btnnuevo.Text = "Guardar";
-
-        } else if(btnnuevo.Text == "Guardar") {
-
+            limpiarlbls();
             try{
-                clsusuario usuar = new clsusuario(0, 0, 0, "", "", "", "", "", "");
-                if (usuar.existe(int.Parse(txtci.Text.Trim())))
+               
+               if (!IsNumeric(txtci.Text)){
+                        lblestadoci.Text = "Tiene que ser numerico";
+                    //btnnuevo.Text = "Guardar";
+                }
+
+                if (txtnombre.Text.Trim()=="") {
+                    lblestadonombre.Text = "No puede estar vacio";
+                    //btnnuevo.Text = "Guardar";
+                }
+
+                if (txtapellido.Text.Trim() == "")
                 {
-
-                    //usuar.Ci = int.Parse(txtci.Text);
-                    //usuar.Idacceso = int.Parse(rdbacceso.SelectedValue);
-                    //usuar.Edad = int.Parse(txtedad.Text);
-                    //usuar.Nombre = txtnombre.Text;
-                    //usuar.Apellido = txtapellido.Text;
-                    //usuar.Email = txtemail.Text;
-                    //usuar.Profesion = txtprofesion.Text;
-                    //usuar.Usuario = txtusuario.Text;
-                    //usuar.Contraseña = txtcontraseña.Text;
-
-                    //usuar.modificar();
-
-                    //GUIEdicionTerminada();
-                    lblestado.Text = "El usuario ya existe intente nuevamente";
-                    btnnuevo.Text = "Nuevo";
+                    lblestadoapellido.Text = "No puede estar vacio";
+                    //btnnuevo.Text = "Guardar";
                 }
-                else {
 
-                    usuar.Ci = int.Parse(txtci.Text);
-                    usuar.Idacceso = int.Parse(rdbacceso.SelectedValue);
-                    usuar.Edad = int.Parse(txtedad.Text);
-                    usuar.Nombre = txtnombre.Text;
-                    usuar.Apellido = txtapellido.Text;
-                    usuar.Email = txtemail.Text;
-                    usuar.Profesion = txtprofesion.Text;
-                    usuar.Usuario = txtusuario.Text;
-                    usuar.Contraseña = txtcontraseña.Text;
+                if (!IsNumeric(txtedad.Text))
+                {
+                    lblestadoedad.Text = "Tiene que ser numerico";
+                    //btnnuevo.Text = "Guardar";
+                }
 
-                    usuar.agregar();
-                    GUIEdicionTerminada();
-                    lblestado.Text = "Nuevo Usuario creado";
-                    btnnuevo.Text = "Nuevo";
+                if (txtemail.Text.Trim() == "")
+                {
+                    lblestadoemail.Text = "No puede estar vacio";
+                    //btnnuevo.Text = "Guardar";
+                }
+
+                if (txtprofesion.Text.Trim() == "")
+                {
+                    lblestadoprofesion.Text = "No puede estar vacio";
+                    //btnnuevo.Text = "Guardar";
+                }
+
+                if (txtusuario.Text.Trim() == "")
+                {
+                    lblestadousuario.Text = "No puede estar vacio";
+                    //btnnuevo.Text = "Guardar";
+                }
+                if (txtcontraseña.Text.Trim() == "")
+                {
+                    lblestadocontraseña.Text = "No puede estar vacio";
+                    //btnnuevo.Text = "Guardar";
+                }
+
+
+
+                //lblestado.Text = "antes de entrar";
+
+
+                    if (IsNumeric(txtci.Text)==true && txtnombre.Text.Length>0 && txtapellido.Text.Length > 0 && IsNumeric(txtedad.Text)==true && txtemail.Text.Length > 0 && txtprofesion.Text.Length > 0 && txtusuario.Text.Length > 0 && txtcontraseña.Text.Length > 0) {
+
+                    //lblestado.Text = "Entre";
+
+                        clsusuario usuar = new clsusuario(0, 0, 0, "", "", "", "", "", "");
+                        if (usuar.existe(int.Parse(txtci.Text.Trim())))
+                          {
+
+                                //usuar.Ci = int.Parse(txtci.Text);
+                                //usuar.Idacceso = int.Parse(rdbacceso.SelectedValue);
+                                //usuar.Edad = int.Parse(txtedad.Text);
+                                //usuar.Nombre = txtnombre.Text;
+                                //usuar.Apellido = txtapellido.Text;
+                                //usuar.Email = txtemail.Text;
+                                //usuar.Profesion = txtprofesion.Text;
+                                //usuar.Usuario = txtusuario.Text;
+                                //usuar.Contraseña = txtcontraseña.Text;
+
+                                //usuar.modificar();
+
+                                //GUIEdicionTerminada();
+                                lblestado.Text = "El usuario ya existe intente nuevamente";
+                                //btnnuevo.Text = "Nuevo";
+                                btnnuevo.Text = "Guardar";
+                          }
+                            else{
+                        
+                                    usuar.Ci = int.Parse(txtci.Text);
+                                    //usuar.Idacceso = int.Parse(rdbacceso.SelectedValue);
+                                    usuar.Idacceso = 1;// int.Parse(rdbacceso.SelectedValue);
+
+                                    usuar.Edad = int.Parse(txtedad.Text);
+                                    usuar.Nombre = txtnombre.Text;
+                                    usuar.Apellido = txtapellido.Text;
+                                    usuar.Email = txtemail.Text;
+                                    usuar.Profesion = txtprofesion.Text;
+                                    usuar.Usuario = txtusuario.Text;
+                                    usuar.Contraseña = txtcontraseña.Text;
+                                
+                                    usuar.agregar();
+                                    GUIEdicionTerminada();
+                                    lblestado.Text = "Nuevo Usuario Registrado";
+                                    //btnnuevo.Text = "Nuevo";
+                                }
+                        }
 
                 }
-            }
-            catch {
+            
+            catch (Exception ex)  {
 
-                lblestado.Text = "No deben quedar espacios en blanco";
+
+                lblestado.Text = "error" + ex.ToString();
             }
                                    
         }
@@ -211,6 +296,9 @@ public partial class pageregistro : System.Web.UI.Page
 
     protected void btncancelar_Click(object sender, EventArgs e)
     {
-        GUIEdicionTerminada();
+        //GUIEdicionTerminada();
+        GUILimpiar();
+        GUIEdicion();
+        limpiarlbls();
     }
 }

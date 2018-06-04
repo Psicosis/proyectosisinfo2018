@@ -31,7 +31,9 @@ public class clsusuario : clsconexion
     }
 
 
-   
+
+    public int obtenerCi(){ return ci;  }
+
     public int Ci
     {
         set { ci = value;}

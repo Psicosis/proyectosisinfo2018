@@ -74,8 +74,15 @@ public partial class pageLogin : System.Web.UI.Page
 
                 lblestado.Text = "Validacion exitosa";
                 if (usuar.Idacceso == 1) {
+                    int ciusuar = usuar.obtenerCi();
+
+                    //clsinformemedico informe= 
+                     
+
                     //lleva menu de administracion
-                    Response.Redirect("~/pageusuario.aspx");
+
+                    Response.Redirect("~/pagehistoriales.aspx?parametro="+ciusuar);
+                    //Response.Redirect("~/pagehistoriales.aspx");
 
                 } else if (usuar.Idacceso == 2) {
                     //lleva a menu con opciones limitadas
@@ -84,7 +91,7 @@ public partial class pageLogin : System.Web.UI.Page
 
             }
             else{
-                lblestado.Text = "Validacion fallida";
+                lblestado.Text = "Usuario y/o contraseña incorrectas";
                 txtusuario.Focus();
             }
 
@@ -97,4 +104,9 @@ public partial class pageLogin : System.Web.UI.Page
 
     }
 
+
+    protected void Button1_Click(object sender, EventArgs e)
+    {
+
+    }
 }
